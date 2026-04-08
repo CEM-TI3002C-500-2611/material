@@ -1,0 +1,38 @@
+.fondo-azul {
+    background-color: #2689d1;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    padding: 10px 20px;
+    border-color: aqua;
+    border-style: dotted;
+    border-width: 5px;
+    margin: 0px 50px;
+}
+
+.navbar {
+    background-color: #E10098;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    font-size: large;
+}
+
+.footer {
+    background-color: darkgrey;
+    color: white;
+}
