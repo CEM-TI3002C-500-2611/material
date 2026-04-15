@@ -141,5 +141,75 @@
             </div>
         </footer>
     </div>
+
+    <!-- Chatbot Launcher -->
+    <button id="chatbot-toggle" type="button" aria-controls="chatbot-window" aria-expanded="false" class="inline-flex right-5 bottom-5 z-50 fixed items-center gap-2 bg-linear-to-r from-pink-500 hover:from-pink-600 to-pink-700 hover:to-pink-800 shadow-xl px-5 py-3 rounded-full font-semibold text-white transition-all">
+        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="2">
+            <path d="M8 10h8M8 14h5M7 20l-3 1 1-3a8 8 0 1115 0 8 8 0 01-13 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Chatbot
+    </button>
+
+    <!-- Chatbot Window -->
+    <section id="chatbot-window" class="hidden right-5 bottom-5 z-50 fixed bg-white shadow-2xl border border-pink-200 rounded-2xl w-[calc(100%-2.5rem)] max-w-sm overflow-hidden">
+        <header class="flex justify-between items-center bg-linear-to-r from-pink-500 to-pink-700 px-4 py-3 text-white">
+            <div>
+                <h3 class="font-bold">Asistente Liverpool</h3>
+                <p class="text-pink-100 text-xs">Estamos para ayudarte</p>
+            </div>
+            <button id="chatbot-close" type="button" aria-label="Cerrar chat" class="hover:bg-white/20 px-2 py-1 rounded-md text-white/90 hover:text-white transition-colors">
+                ✕
+            </button>
+        </header>
+
+        <div class="space-y-3 bg-pink-50 p-4 h-72 overflow-y-auto">
+            <div class="bg-white shadow px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-gray-700 text-sm">
+                Hola, soy tu asistente. ¿En qué te puedo ayudar hoy?
+            </div>
+            <div class="bg-pink-600 shadow ml-auto px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-white text-sm">
+                Quiero revisar el riesgo de una marca.
+            </div>
+            <div class="bg-white shadow px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-gray-700 text-sm">
+                Perfecto. Puedes ir a la sección Predicción para cargar los datos y ver el resultado.
+            </div>
+        </div>
+
+        <form class="p-3 border-pink-100 border-t">
+            <label for="chatbot-input" class="sr-only">Escribe tu mensaje</label>
+            <div class="flex gap-2">
+                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..." class="bg-white px-3 py-2 border border-pink-200 focus:border-pink-500 rounded-xl outline-none w-full text-gray-700 text-sm">
+                <button type="button" class="bg-linear-to-r from-pink-500 hover:from-pink-600 to-pink-700 hover:to-pink-800 px-4 py-2 rounded-xl font-semibold text-white text-sm transition-all">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        const chatToggle = document.getElementById("chatbot-toggle");
+        const chatWindow = document.getElementById("chatbot-window");
+        const chatClose = document.getElementById("chatbot-close");
+
+        function openChat() {
+            chatWindow.classList.remove("hidden");
+            chatToggle.setAttribute("aria-expanded", "true");
+        }
+
+        function closeChat() {
+            chatWindow.classList.add("hidden");
+            chatToggle.setAttribute("aria-expanded", "false");
+        }
+
+        chatToggle.addEventListener("click", () => {
+            const isHidden = chatWindow.classList.contains("hidden");
+            if (isHidden) {
+                openChat();
+            } else {
+                closeChat();
+            }
+        });
+
+        chatClose.addEventListener("click", closeChat);
+    </script>
 </body>
 </html>
