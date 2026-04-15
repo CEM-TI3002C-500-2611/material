@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/images/faviconV2.png" type="image/x-icon">
+	<title>Marcas | Liverpool Predictivo</title>
+</head>
+<body>
+    <div class="bg-gray-50">
+        <header class="bg-linear-to-r from-pink-500 to-pink-700 shadow-lg">
+            <nav class="flex justify-between items-center mx-auto px-4 py-4 max-w-7xl">
+                <div class="flex items-center gap-3">
+                    <img src="images/liverpool-logo-header.svg" alt="Liverpool Logo" class="w-auto h-12">
+                </div>
+                <ul class="flex items-center gap-8">
+                    <li><a href="index.html" class="font-bold text-gray-50 hover:text-pink-800 transition-colors">Inicio</a></li>
+                    <li><a href="tableros.html" class="font-bold text-gray-50 hover:text-pink-600 transition-colors">Tableros</a></li>
+                    <li><a href="marca.html" class="font-bold text-gray-50 hover:text-pink-600 transition-colors">Marca</a></li>
+                    <li><a href="predictivo.html" class="font-bold text-gray-50 hover:text-pink-600 transition-colors">Predicción</a></li>
+                    <li><a href="about.html" class="font-bold text-gray-50 hover:text-pink-600 transition-colors">Nosotros</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+            <section class="bg-linear-to-r from-pink-500 to-pink-700 py-16 text-white">
+                <div class="mx-auto px-4 max-w-7xl">
+                    <h1 class="mb-4 font-bold text-4xl md:text-5xl">Buscador de Marcas Liverpool</h1>
+                    <p class="max-w-3xl text-pink-100 text-lg">
+                        Selecciona una marca para consultar su perfil, principales categorías, vigencia comercial y el nivel de riesgo de pérdida dentro del portafolio.
+                    </p>
+                </div>
+            </section>
+    
+            <section class="mx-auto px-4 py-12 max-w-7xl">
+                <div class="bg-white shadow-lg mb-8 p-6 border border-pink-100 rounded-2xl">
+                    <p class="mb-2 font-semibold text-pink-700 text-sm uppercase tracking-[0.2em]">Cuadro de selección</p>
+                    <h2 class="mb-3 font-bold text-gray-900 text-2xl">Explora marcas clave del catálogo</h2>
+                    <p class="text-gray-600">
+                        Abre cada opción para ver la marca seleccionada y su información descriptiva. La primera marca aparece abierta por defecto.
+                    </p>
+                </div>
+    
+                <div class="space-y-5">
+                    <details open class="group bg-white shadow-lg border border-pink-100 rounded-2xl overflow-hidden">
+                        <summary class="marker:hidden flex justify-between items-center px-6 py-5 font-semibold text-gray-900 cursor-pointer list-none">
+                            <span>Marca seleccionada: Nike</span>
+                            <span class="bg-pink-100 group-open:bg-pink-700 px-3 py-1 rounded-full text-pink-700 group-open:text-white text-sm transition-colors">Ver detalle</span>
+                        </summary>
+                        <div class="gap-6 grid md:grid-cols-[240px_1fr] px-6 py-6 border-pink-100 border-t">
+                            <div class="flex justify-center items-center bg-gray-950 shadow-inner p-8 rounded-2xl text-white">
+                                <div class="text-center">
+                                    <p class="text-pink-300 text-sm uppercase tracking-[0.5em]">Logo</p>
+                                    <p class="mt-3 font-black text-4xl tracking-[0.35em]">NIKE</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 font-bold text-gray-900 text-3xl">Nike</h3>
+                                <p class="mb-5 text-gray-600 text-lg">
+                                    Marca deportiva con fuerte presencia en ropa, calzado y accesorios. Dentro del ecosistema Liverpool destaca por su tracción comercial y reconocimiento entre segmentos jóvenes y urbanos.
+                                </p>
+                                <div class="mb-5">
+                                    <p class="mb-2 font-semibold text-pink-700 text-sm uppercase tracking-[0.15em]">Categorías</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Calzado</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Ropa deportiva</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Accesorios</span>
+                                    </div>
+                                </div>
+                                <div class="gap-4 grid md:grid-cols-2">
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Fecha de vencimiento</p>
+                                        <p class="mt-1 font-bold text-gray-900 text-lg">31 de diciembre de 2027</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Nivel de riesgo</p>
+                                        <p class="inline-flex bg-emerald-100 mt-1 px-3 py-1 rounded-full font-bold text-emerald-700 text-sm">Bajo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+    
+                    <details class="group bg-white shadow-lg border border-pink-100 rounded-2xl overflow-hidden">
+                        <summary class="marker:hidden flex justify-between items-center px-6 py-5 font-semibold text-gray-900 cursor-pointer list-none">
+                            <span>Marca seleccionada: Samsung</span>
+                            <span class="bg-pink-100 group-open:bg-pink-700 px-3 py-1 rounded-full text-pink-700 group-open:text-white text-sm transition-colors">Ver detalle</span>
+                        </summary>
+                        <div class="gap-6 grid md:grid-cols-[240px_1fr] px-6 py-6 border-pink-100 border-t">
+                            <div class="flex justify-center items-center bg-blue-950 shadow-inner p-8 rounded-2xl text-white">
+                                <div class="text-center">
+                                    <p class="text-blue-200 text-sm uppercase tracking-[0.5em]">Logo</p>
+                                    <p class="mt-3 font-black text-3xl tracking-[0.25em]">SAMSUNG</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 font-bold text-gray-900 text-3xl">Samsung</h3>
+                                <p class="mb-5 text-gray-600 text-lg">
+                                    Marca líder en tecnología y electrónica de consumo. Su presencia en Liverpool aporta volumen en ticket promedio alto y relevancia en temporadas promocionales clave.
+                                </p>
+                                <div class="mb-5">
+                                    <p class="mb-2 font-semibold text-pink-700 text-sm uppercase tracking-[0.15em]">Categorías</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Telefonía</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Pantallas</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Electrodomésticos</span>
+                                    </div>
+                                </div>
+                                <div class="gap-4 grid md:grid-cols-2">
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Fecha de vencimiento</p>
+                                        <p class="mt-1 font-bold text-gray-900 text-lg">15 de agosto de 2026</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Nivel de riesgo</p>
+                                        <p class="inline-flex bg-amber-100 mt-1 px-3 py-1 rounded-full font-bold text-amber-700 text-sm">Medio</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+    
+                    <details class="group bg-white shadow-lg border border-pink-100 rounded-2xl overflow-hidden">
+                        <summary class="marker:hidden flex justify-between items-center px-6 py-5 font-semibold text-gray-900 cursor-pointer list-none">
+                            <span>Marca seleccionada: Levi's</span>
+                            <span class="bg-pink-100 group-open:bg-pink-700 px-3 py-1 rounded-full text-pink-700 group-open:text-white text-sm transition-colors">Ver detalle</span>
+                        </summary>
+                        <div class="gap-6 grid md:grid-cols-[240px_1fr] px-6 py-6 border-pink-100 border-t">
+                            <div class="flex justify-center items-center bg-red-700 shadow-inner p-8 rounded-2xl text-white">
+                                <div class="text-center">
+                                    <p class="text-red-100 text-sm uppercase tracking-[0.5em]">Logo</p>
+                                    <p class="mt-3 font-black text-4xl">Levi's</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 font-bold text-gray-900 text-3xl">Levi's</h3>
+                                <p class="mb-5 text-gray-600 text-lg">
+                                    Referente en moda casual y mezclilla. Su valor para Liverpool se concentra en permanencia de marca, recurrencia de compra y posicionamiento multigeneracional.
+                                </p>
+                                <div class="mb-5">
+                                    <p class="mb-2 font-semibold text-pink-700 text-sm uppercase tracking-[0.15em]">Categorías</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Jeans</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Playeras</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Chamarras</span>
+                                    </div>
+                                </div>
+                                <div class="gap-4 grid md:grid-cols-2">
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Fecha de vencimiento</p>
+                                        <p class="mt-1 font-bold text-gray-900 text-lg">10 de marzo de 2028</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Nivel de riesgo</p>
+                                        <p class="inline-flex bg-emerald-100 mt-1 px-3 py-1 rounded-full font-bold text-emerald-700 text-sm">Bajo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+    
+                    <details class="group bg-white shadow-lg border border-pink-100 rounded-2xl overflow-hidden">
+                        <summary class="marker:hidden flex justify-between items-center px-6 py-5 font-semibold text-gray-900 cursor-pointer list-none">
+                            <span>Marca seleccionada: MAC Cosmetics</span>
+                            <span class="bg-pink-100 group-open:bg-pink-700 px-3 py-1 rounded-full text-pink-700 group-open:text-white text-sm transition-colors">Ver detalle</span>
+                        </summary>
+                        <div class="gap-6 grid md:grid-cols-[240px_1fr] px-6 py-6 border-pink-100 border-t">
+                            <div class="flex justify-center items-center bg-black shadow-inner p-8 rounded-2xl text-white">
+                                <div class="text-center">
+                                    <p class="text-gray-300 text-sm uppercase tracking-[0.5em]">Logo</p>
+                                    <p class="mt-3 font-black text-4xl tracking-[0.3em]">MAC</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 font-bold text-gray-900 text-3xl">MAC Cosmetics</h3>
+                                <p class="mb-5 text-gray-600 text-lg">
+                                    Marca premium de belleza con fuerte afinidad en segmentos de maquillaje y cuidado personal. Es relevante para Liverpool por su diferenciación y capacidad de atraer tráfico aspiracional.
+                                </p>
+                                <div class="mb-5">
+                                    <p class="mb-2 font-semibold text-pink-700 text-sm uppercase tracking-[0.15em]">Categorías</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Maquillaje</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Fragancias</span>
+                                        <span class="bg-pink-100 px-3 py-1 rounded-full font-medium text-pink-700 text-sm">Belleza premium</span>
+                                    </div>
+                                </div>
+                                <div class="gap-4 grid md:grid-cols-2">
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Fecha de vencimiento</p>
+                                        <p class="mt-1 font-bold text-gray-900 text-lg">30 de noviembre de 2026</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <p class="font-semibold text-gray-500 text-sm">Nivel de riesgo</p>
+                                        <p class="inline-flex bg-rose-100 mt-1 px-3 py-1 rounded-full font-bold text-rose-700 text-sm">Alto</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </main>
+    
+        <footer class="bg-gradient-to-r from-pink-700 to-pink-900 py-8 text-white">
+            <div class="flex md:flex-row flex-col justify-between items-center gap-3 mx-auto px-4 max-w-7xl text-sm">
+                <p>&copy; 2026 Liverpool Predictivo. Todos los derechos reservados.</p>
+                <p>Buscador descriptivo de marcas para Liverpool de México.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
