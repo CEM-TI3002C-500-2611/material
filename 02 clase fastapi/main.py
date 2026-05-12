@@ -1,4 +1,5 @@
 import joblib
+import json
 import os
 import pandas as pd
 from dotenv import load_dotenv
@@ -10,7 +11,7 @@ from psycopg_pool import AsyncConnectionPool
 import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-from typing import Literal
+from typing import Literal, Dict, Any
 
 from google import genai
 from google.genai import types
