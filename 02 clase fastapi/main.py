@@ -1,5 +1,8 @@
+import joblib
 import os
+import pandas as pd
 from dotenv import load_dotenv
+
 from contextlib import asynccontextmanager
 from psycopg.rows import dict_row
 from psycopg_pool import AsyncConnectionPool
@@ -18,6 +21,16 @@ class StudentModel(BaseModel):
     math_score: int = Field(ge=0, le=100)
     reading_score: int = Field(ge=0, le=100)
     writing_score: int = Field(ge=0, le=100)
+    
+class RenovationPredictionModel(BaseModel):
+    ventas_totales: int
+    ingresos: float
+    antiguedad_marca: int
+    numero_leads_web: int
+    calificacion_promedio_productos: float
+    numero_devoluciones: int
+    participacion_mercado: float
+    participacion_mercado_promedio: float
     
 load_dotenv()
 
@@ -39,13 +52,13 @@ pool = AsyncConnectionPool(conninfo=conn_string, open=False)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    app.state.model = joblib.load("modelo_renovacion.joblib")
+    app.state.df = pd.read_csv("exams.csv")
     await pool.open()
     print("Connection pool initialized...")
     yield
     await pool.close()
     print("Connection pool closed...")
-
-df = pd.read_csv("exams.csv")
 
 app = FastAPI(lifespan=lifespan)
 
@@ -55,11 +68,11 @@ def get_index():
 
 @app.get("/top_5_math_scores")
 def get_top_5_math_scores():
-    return df["math score"].nlargest(5).to_list()
+    return app.state.df["math score"].nlargest(5).to_list()
 
 @app.get("/race_ethnicity_means")
 def get_race_ethnicity_means():
-    return df.groupby("race/ethnicity")[["math score", "reading score", "writing score"]].mean().reset_index().to_dict(orient="records")
+    return app.state.df.groupby("race/ethnicity")[["math score", "reading score", "writing score"]].mean().reset_index().to_dict(orient="records")
 
 # Parámetros de ruta (path parameters)
 @app.get("/race_ethnicity/{group}")
@@ -67,7 +80,7 @@ def get_race_ethnicity(group : str):
     group = group.upper()
     if group not in ["A", "B", "C", "D", "E"]:
         return "El grupo debe ser A, B, C, D o E."
-    return df.loc[df["race/ethnicity"] == f"group {group}"].describe().reset_index().to_dict(orient="records")
+    return app.state.df.loc[app.state.df["race/ethnicity"] == f"group {group}"].describe().reset_index().to_dict(orient="records")
 
 # Parámetros de consulta (query parameters)
 # Se utilizan mucho para personalizar listados order, límite
@@ -78,8 +91,8 @@ def get_sample(order : str = "asc", limit : int = 5):
     if limit <= 0: 
         limit = 5
     if order == "desc":
-        return df.tail(limit).to_dict(orient="records")
-    return df.head(limit).to_dict(orient="records")
+        return app.state.df.tail(limit).to_dict(orient="records")
+    return app.state.df.head(limit).to_dict(orient="records")
 
 @app.post("/student")
 def post_student(student : StudentModel):
@@ -102,6 +115,16 @@ async def get_first_rows():
         async with conn.cursor() as cur:
             res = await cur.execute("SELECT * from marcas LIMIT 10")
             return await res.fetchall()
+
+@app.post("/predict_brand_renovation")
+async def post_predict_brand_renovation(data: RenovationPredictionModel):
+    pred_df = pd.DataFrame([data.model_dump()])
+    predicted_class = app.state.model.predict(pred_df)[0]
+    probability = app.state.model.predict_proba(pred_df)[0]
+    return {
+        "renovacion": predicted_class,
+        "probabilidad": probability.tolist()
+    }
 
 if __name__ == "__main__":
     import uvicorn

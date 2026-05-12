@@ -205,3 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+Proyecto Final/ml/*.xlsx
+Proyecto Final/ml/*.csv
