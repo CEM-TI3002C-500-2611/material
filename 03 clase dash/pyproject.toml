@@ -1,0 +1,12 @@
+[project]
+name = "03-clase-dash"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dash-ag-grid>=35.2.0",
+    "dash[async]>=4.1.0",
+    "httpx>=0.28.1",
+    "pandas>=3.0.3",
+]

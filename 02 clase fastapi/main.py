@@ -233,7 +233,7 @@ async def get_first_rows():
     async with pool.connection() as conn:
         conn.row_factory = dict_row
         async with conn.cursor() as cur:
-            res = await cur.execute("SELECT * from marcas LIMIT 10")
+            res = await cur.execute("SELECT * from marca LIMIT 10")
             return await res.fetchall()
 
 @app.post("/predict_brand_renovation")
